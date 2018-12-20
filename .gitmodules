@@ -1,0 +1,6 @@
+[submodule "target/stlink"]
+	path = target/stlink
+	url = https://github.com/texane/stlink
+[submodule "target/Drivers/CMSIS_5"]
+	path = target/Drivers/CMSIS_5
+	url = https://github.com/ARM-software/CMSIS_5.git
