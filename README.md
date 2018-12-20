@@ -29,7 +29,7 @@ make
 ## Build firmware with default net
 Build firmware with default neural net:
 ```
-cd ../target
+cd ..
 make
 ```
 Connect the discovery board, flash firmware with default net:
