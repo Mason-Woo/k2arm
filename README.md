@@ -1,4 +1,4 @@
-# k2arm
+# k2arm - keras to arm parser
 A simple project to show how a custom keras model can be automatically translated into c-code.
 The generated c-code can, in combination with the [ARM-CMSIS-NN](http://www.keil.com/pack/doc/CMSIS_Dev/NN/html/index.html) functions, be used
 to run neural-net calculations in an efficient way on an embedded micro-controller such as the CORTEX-M4.
