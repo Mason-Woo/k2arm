@@ -34,7 +34,7 @@ make
 ```
 Connect the discovery board, flash firmware with default net:
 ```
-./stlink.git/build/Release/st-flash --format ihex write ./build/cubeMx.hex
+./stlink/build/Release/st-flash --format ihex write ./build/cubeMx.hex
 ```
 
 ## Run default parsed net, compare with keras 
