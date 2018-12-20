@@ -22,7 +22,7 @@ git clone --recurse-submodules https://github.com/InES-HPMM/k2arm.git
 Build st-flash:
 
 ```
-cd k2arm/target/stlink.git
+cd k2arm/target/stlink
 make
 ```
 
