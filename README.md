@@ -16,7 +16,7 @@ This repository has also example firmware which runs on the [STM32F4-Discorevy B
 ## Setup
 Clone with submodules:
 ```
-git clone --recurse-submodules git@github.engineering.zhaw.ch:hpmm/k2arm.git
+git clone --recurse-submodules https://github.com/InES-HPMM/k2arm.git
 ```
 
 Build st-flash:
