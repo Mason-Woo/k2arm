@@ -6,7 +6,7 @@ to run neural-net calculations in an efficient way on an embedded micro-controll
 This repository has also example firmware which runs on the [STM32F4-Discorevy Board](https://www.st.com/en/evaluation-tools/stm32f4discovery.html). Part of the firmware was generated with [cubeMX](https://www.st.com/en/development-tools/stm32cubemx.html). The example project has a MNIST classifier which can classify handwritten digits.
 
 ## Requirements
- - arm-none-eabi-gcc [(Install problems on ubuntu 18.04 )](https://github.com/bbcmicrobit/micropython/issues/514#issuecomment-404759614)
+ - arm-none-eabi-gcc
  - python: 3.6
  - tensorflow 1.10.0
  - ubuntu 18.04
@@ -19,7 +19,7 @@ Clone with submodules:
 git clone --recurse-submodules https://github.com/InES-HPMM/k2arm.git
 ```
 
-Build st-flash:
+Build st-flash according to [guide](https://github.com/texane/stlink/blob/master/doc/compiling.md):
 
 ```
 cd k2arm/target/stlink
@@ -32,7 +32,13 @@ Build firmware with default neural net:
 cd ..
 make
 ```
-Connect the discovery board, flash firmware with default net:
+In case of the error:
+```
+Conflicting CPU architectures 13/1
+```
+install: [this packages](https://github.com/bbcmicrobit/micropython/issues/514#issuecomment-404759614).
+
+Connect the discovery board to through the usb connector, flash firmware with default net:
 ```
 ./stlink/build/Release/st-flash --format ihex write ./build/cubeMx.hex
 ```
