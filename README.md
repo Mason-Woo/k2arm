@@ -6,7 +6,7 @@ to run neural-net calculations in an efficient way on an embedded micro-controll
 This repository has also example firmware which runs on the [STM32F4-Discorevy Board](https://www.st.com/en/evaluation-tools/stm32f4discovery.html). Part of the firmware was generated with [cubeMX](https://www.st.com/en/development-tools/stm32cubemx.html). The example project has a MNIST classifier which can classify handwritten digits.
 
 ## Requirements
- - arm-none-eabi-gcc
+ - [arm-none-eabi-gcc](https://packages.ubuntu.com/de/trusty/gcc-arm-none-eabi)
  - python: 3.6
  - tensorflow 1.10.0
  - ubuntu 18.04
