@@ -93,7 +93,7 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
   uint8_t c_cmd;
-
+  uint16_t i;
   /* buffers for the MNIST image */
   uint8_t inputPicture[IMAGE_SIZE];
   float32_t f32_digitToClassify[IMAGE_SIZE];
@@ -149,7 +149,7 @@ int main(void)
           if (HAL_UART_Receive(&huart4, inputPicture, IMAGE_SIZE, 1000) == HAL_OK)
           {
             /* scale input into float, then convert into Q7 using arm_float_to_q7 */
-            for (uint16_t i = 0; i < IMAGE_SIZE; i++) {
+            for (i = 0; i < IMAGE_SIZE; i++) {
               f32_digitToClassify[i] = (float32_t)inputPicture[i] / 255;
             }
 
