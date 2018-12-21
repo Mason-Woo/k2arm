@@ -5,11 +5,15 @@ to run neural-net calculations in an efficient way on an embedded micro-controll
 
 This repository has also example firmware which runs on the [STM32F4-Discorevy Board](https://www.st.com/en/evaluation-tools/stm32f4discovery.html). Part of the firmware was generated with [cubeMX](https://www.st.com/en/development-tools/stm32cubemx.html). The example project has a MNIST classifier which can classify handwritten digits.
 
-## Requirements
- - [arm-none-eabi-gcc](https://packages.ubuntu.com/de/trusty/gcc-arm-none-eabi)
+Following steps are tested on Ubuntu 18.04
+
+## Code generation requirements
  - python: 3.6
  - tensorflow 1.10.0
- - ubuntu 18.04
+
+## Firmware compilation and flash requirements
+ - [libusb-1.0.0-dev](https://packages.ubuntu.com/search?keywords=libusb-1.0-0-dev) (for st-link)
+ - [arm-none-eabi-gcc](https://packages.ubuntu.com/de/trusty/gcc-arm-none-eabi)
  - [STM32F4-Discorevy Board](https://www.st.com/en/evaluation-tools/stm32f4discovery.html)
  - [TLL-232R Converter](https://ch.farnell.com/ftdi/ttl-232r-3v3/kabel-usb-ttl-pegel-seriell-umsetzung/dp/1329311?mckv=s89FAqCVd_dc|pcrid|251391972450|kword|ttl-232r-3v3|match|p|plid|&CMP=KNC-GCH-GEN-SKU-MDC-German&gclid=EAIaIQobChMIjfS4hcyo2wIVxDobCh14jwVBEAAYAiAAEgLMo_D_BwE)
 
@@ -56,7 +60,7 @@ PA1 ------> UART4_RX
 adapt /dev/ttyUSB2 to your serial device then run:
 ```
 cd ../host/
-python ./main.py -r /dev/ttyUSB2
+python3.6 ./main.py -r /dev/ttyUSB2
 ```
 
 ## Generate custom code from new model
@@ -69,9 +73,9 @@ Note that:
 
 Generate a model which uses the q7 implementations:
 ```
-python ./main.py -g 7
+python3.6 ./main.py -g 7
 ```
 Generate a model which uses the q15 implementations:
 ```
-python ./main.py -g 15
+python3.6 ./main.py -g 15
 ```
