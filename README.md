@@ -24,6 +24,9 @@ Build st-flash according to [guide](https://github.com/texane/stlink/blob/master
 ```
 cd k2arm/target/stlink
 make
+sudo cp etc/udev/rules.d/49-stlinkv* /etc/udev/rules.d/
+sudo udevadm control --reload-rules
+
 ```
 
 ## Build firmware with default net
