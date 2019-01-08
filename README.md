@@ -7,11 +7,11 @@ This repository has also example firmware which runs on the [STM32F4-Discorevy B
 
 Following steps are tested on Ubuntu 18.04
 
-## Code generation requirements
+## CMSIS-NN code generation
+Following software is required:
  - python: 3.6
  - tensorflow 1.10.0
 
-### Generate CMSIS-NN C-code from keras model
 The keras model is defined in /host/MnistClassifier.py. 
 Feel free to modify the default model, defined in createModel.
 Note that:
@@ -34,6 +34,7 @@ python3.6 ./main.py -g 15
 ```
 
 ## Firmware deployment and model evaluation
+Following software and hardware is required:
  - [libusb-1.0.0-dev](https://packages.ubuntu.com/search?keywords=libusb-1.0-0-dev) (for st-link)
  - [arm-none-eabi-gcc](https://packages.ubuntu.com/de/trusty/gcc-arm-none-eabi)
  - [STM32F4-Discorevy Board](https://www.st.com/en/evaluation-tools/stm32f4discovery.html)
