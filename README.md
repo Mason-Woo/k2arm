@@ -73,6 +73,7 @@ Connect the serial connection device RX/TX to the RX/TX pins of UART4 of the dis
 ```
 PA0-WKUP Board ------> TX Serial device host
 PA1      Board ------> RX Serial device host
+GND      Board ------> GND host
 ```
 
 adapt /dev/ttyUSB2 to your serial device then run:
