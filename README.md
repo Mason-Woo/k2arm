@@ -71,8 +71,8 @@ Connect the discovery board to through the usb connector, flash firmware with de
 ### Evaluate the translated neural net
 Connect the serial connection device RX/TX to the RX/TX pins of UART4 of the discovery Board:
 ```
-PA0-WKUP Board ------> UART4_TX Serial device host
-PA1      Board ------> UART4_RX Serial device host
+PA0-WKUP Board ------> TX Serial device host
+PA1      Board ------> RX Serial device host
 ```
 
 adapt /dev/ttyUSB2 to your serial device then run:
