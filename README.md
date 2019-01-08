@@ -44,7 +44,7 @@ Following software and hardware is required:
 Build st-flash according to [guide](https://github.com/texane/stlink/blob/master/doc/compiling.md):
 
 ```
-cd k2arm/target/stlink
+cd ../target/stlink
 make
 sudo cp etc/udev/rules.d/49-stlinkv* /etc/udev/rules.d/
 sudo udevadm control --reload-rules
