@@ -38,7 +38,7 @@ Following software and hardware is required:
  - [libusb-1.0.0-dev](https://packages.ubuntu.com/search?keywords=libusb-1.0-0-dev) (for st-link)
  - [arm-none-eabi-gcc](https://packages.ubuntu.com/de/trusty/gcc-arm-none-eabi)
  - [STM32F4-Discorevy Board](https://www.st.com/en/evaluation-tools/stm32f4discovery.html)
- - [TLL-232R Converter](https://ch.farnell.com/ftdi/ttl-232r-3v3/kabel-usb-ttl-pegel-seriell-umsetzung/dp/1329311?mckv=s89FAqCVd_dc|pcrid|251391972450|kword|ttl-232r-3v3|match|p|plid|&CMP=KNC-GCH-GEN-SKU-MDC-German&gclid=EAIaIQobChMIjfS4hcyo2wIVxDobCh14jwVBEAAYAiAAEgLMo_D_BwE)
+ - [Serial connection device such as the TLL-232R Converter](https://ch.farnell.com/ftdi/ttl-232r-3v3/kabel-usb-ttl-pegel-seriell-umsetzung/dp/1329311?mckv=s89FAqCVd_dc|pcrid|251391972450|kword|ttl-232r-3v3|match|p|plid|&CMP=KNC-GCH-GEN-SKU-MDC-German&gclid=EAIaIQobChMIjfS4hcyo2wIVxDobCh14jwVBEAAYAiAAEgLMo_D_BwE)
 
 ### Setup
 Build st-flash according to [guide](https://github.com/texane/stlink/blob/master/doc/compiling.md):
@@ -69,10 +69,10 @@ Connect the discovery board to through the usb connector, flash firmware with de
 ```
 
 ### Evaluate the translated neural net
-Connect the serial device to the RX/TX pins of UART4 of the discovery Board:
+Connect the serial connection device RX/TX to the RX/TX pins of UART4 of the discovery Board:
 ```
-PA0-WKUP ------> UART4_TX
-PA1 ------> UART4_RX
+PA0-WKUP Board ------> UART4_TX Serial device host
+PA1      Board ------> UART4_RX Serial device host
 ```
 
 adapt /dev/ttyUSB2 to your serial device then run:
