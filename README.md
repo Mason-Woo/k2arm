@@ -11,18 +11,35 @@ Following steps are tested on Ubuntu 18.04
  - python: 3.6
  - tensorflow 1.10.0
 
-## Firmware compilation and flash requirements
+### Generate CMSIS-NN C-code from keras model
+The keras model is defined in /host/MnistClassifier.py. 
+Feel free to modify the default model, defined in createModel.
+Note that:
+ - That models with tanh and sigmoid sometimes perform bad (LUT approach of CMSIS-NN, see: [Issue](https://github.com/ARM-software/CMSIS_5/issues/470))
+ - Softmax can only be the activation function of the last dense layer
+ - Only fully connected (dense) layers are supported yet
+
+Clone repository with submodules:
+```
+git clone --recurse-submodules https://github.com/InES-HPMM/k2arm.git
+cd k2arm/host
+```
+Generate a model which uses the q7 implementations:
+```
+python3.6 ./main.py -g 7
+```
+Generate a model which uses the q15 implementations:
+```
+python3.6 ./main.py -g 15
+```
+
+## Firmware deployment and model evaluation
  - [libusb-1.0.0-dev](https://packages.ubuntu.com/search?keywords=libusb-1.0-0-dev) (for st-link)
  - [arm-none-eabi-gcc](https://packages.ubuntu.com/de/trusty/gcc-arm-none-eabi)
  - [STM32F4-Discorevy Board](https://www.st.com/en/evaluation-tools/stm32f4discovery.html)
  - [TLL-232R Converter](https://ch.farnell.com/ftdi/ttl-232r-3v3/kabel-usb-ttl-pegel-seriell-umsetzung/dp/1329311?mckv=s89FAqCVd_dc|pcrid|251391972450|kword|ttl-232r-3v3|match|p|plid|&CMP=KNC-GCH-GEN-SKU-MDC-German&gclid=EAIaIQobChMIjfS4hcyo2wIVxDobCh14jwVBEAAYAiAAEgLMo_D_BwE)
 
-## Setup
-Clone with submodules:
-```
-git clone --recurse-submodules https://github.com/InES-HPMM/k2arm.git
-```
-
+### Setup
 Build st-flash according to [guide](https://github.com/texane/stlink/blob/master/doc/compiling.md):
 
 ```
@@ -33,7 +50,7 @@ sudo udevadm control --reload-rules
 
 ```
 
-## Build firmware with default net
+### Build and deploy
 Build firmware with default neural net:
 ```
 cd ..
@@ -50,7 +67,7 @@ Connect the discovery board to through the usb connector, flash firmware with de
 ./stlink/build/Release/st-flash --format ihex write ./build/cubeMx.hex
 ```
 
-## Run default parsed net, compare with keras 
+### Evaluate the translated neural net
 Connect the serial device to the RX/TX pins of UART4 of the discovery Board:
 ```
 PA0-WKUP ------> UART4_TX
@@ -63,19 +80,3 @@ cd ../host/
 python3.6 ./main.py -r /dev/ttyUSB2
 ```
 
-## Generate custom code from new model
-The keras model is defined in /host/MnistClassifier.py. 
-Feel free to modify the default model, defined in createModel.
-Note that:
- - That models with tanh and sigmoid sometimes perform bad (LUT approach of ARM)
- - Softmax can only be the activation function of the last dense layer
- - Only fully connected (dense) layers are supported yet
-
-Generate a model which uses the q7 implementations:
-```
-python3.6 ./main.py -g 7
-```
-Generate a model which uses the q15 implementations:
-```
-python3.6 ./main.py -g 15
-```
