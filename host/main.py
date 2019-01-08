@@ -152,8 +152,8 @@ if compareThroughSerial == True:
             errorCountM4 = errorCountM4 + 1
 
         plt.imshow(mc.testVecInt[i], cmap=plt.get_cmap('gray'))
-        plt.title('Label:' + str(mc.testLabel[i]) + ' P H:' +
-                    str(predictionHost[i]) + ' P M4:' + str(predictionM4[i]))
+        plt.title('Label:' + str(mc.testLabel[i]) + ' Pred Host:' +
+                    str(predictionHost[i]) + ' Pred Target:' + str(predictionM4[i]))
         plt.show()
 
         # calc acc
