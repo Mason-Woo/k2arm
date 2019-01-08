@@ -24,11 +24,11 @@ Clone repository with submodules:
 git clone --recurse-submodules https://github.com/InES-HPMM/k2arm.git
 cd k2arm/host
 ```
-Generate a model which uses the q7 implementations:
+Generate C-code which uses the q7 implementations:
 ```
 python3.6 ./main.py -g 7
 ```
-Generate a model which uses the q15 implementations:
+Generate C-code which uses the q15 implementations:
 ```
 python3.6 ./main.py -g 15
 ```
